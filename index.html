@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Color Changer</title>
+        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <style>
+            .changebutton{
+                display: inline;
+                width: 200px;
+                height: 200px;
+                border-radius: 300px;
+                border: 2px solid black;
+                text-align: center;
+                background: linear-gradient(to right,#FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF);
+                line-height: 200px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                font-size: 35px;
+                text-shadow: 
+                -1px -1px 0 #b3b3b3,  
+                 1px -1px 0 #b3b3b3,
+                -1px  1px 0 #b3b3b3,
+                 1px  1px 0 #b3b3b3; 
+            }
+        </style>
+        <script>
+            function randomcolor(){
+                var letter='0123456789ABCDEF'
+                var color='#'
+                for (var i=0; i<6;i++){
+                    color+=letter[Math.floor(Math.random()*16)]
+                }
+                return color    
+            }
+            function backgroundchange(self){
+                var res=randomcolor()
+                document.body.style.backgroundColor=res
+                self.innerHTML=res
+                self.style.background=res
+                self.style.filter="brightness(1.2)"
+            }
+        </script>
+    </head>
+    <body>
+        <div class="changebutton" onclick="backgroundchange(this)" >  
+            Click Me!
+        </div>
+    </body>
+</html>
