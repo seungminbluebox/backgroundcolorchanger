@@ -25,7 +25,18 @@
                  1px -1px 0 #b3b3b3,
                 -1px  1px 0 #b3b3b3,
                  1px  1px 0 #b3b3b3; 
+                user-select: none;
             }
+            .copybutton{
+                position: absolute;
+                top: 58%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+
         </style>
         <script>
             function randomcolor(){
@@ -43,11 +54,21 @@
                 self.style.background=res
                 self.style.filter="brightness(1.2)"
             }
+            function copy(){
+                var text=document.querySelector('.changebutton').innerHTML
+                if (text[0]!=='#'){
+                    alert('Click Me! first!')}
+                else{
+                    navigator.clipboard.writeText(text)
+                    alert('copied')
+                }
+            }
         </script>
     </head>
     <body>
         <div class="changebutton" onclick="backgroundchange(this)" >  
-            Click Me!
+            Click Me!          
         </div>
+        <img class="copybutton" onclick="copy()" src="copy.png">
     </body>
 </html>
